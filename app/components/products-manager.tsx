@@ -53,7 +53,7 @@ const mockProducts: Product[] = [
 ]
 
 export default function ProductsManager() {
-  const [products, setProducts] = useState<Product[]>(mockProducts)
+  const [products] = useState<Product[]>(mockProducts)
   const [isAddingProduct, setIsAddingProduct] = useState(false)
 
   return (
@@ -76,7 +76,12 @@ export default function ProductsManager() {
         {products.map((product) => (
           <div key={product.id} className="bg-card rounded-xl overflow-hidden">
             <div className="relative aspect-square">
-              <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+              <Image
+                src={product.image || "/placeholder.svg"}
+                alt={product.name.replace(/'/g, "&apos;")}
+                fill
+                className="object-cover"
+              />
               <div className="absolute top-3 right-3">
                 <span
                   className={`px-2 py-1 rounded-full text-xs font-medium ${
@@ -89,8 +94,12 @@ export default function ProductsManager() {
             </div>
 
             <div className="p-4">
-              <h3 className="font-semibold text-card-foreground mb-2">{product.name}</h3>
-              <p className="text-sm text-muted-foreground mb-2">{product.category}</p>
+              <h3 className="font-semibold text-card-foreground mb-2">
+                {product.name.replace(/'/g, "&apos;")}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-2">
+                {product.category.replace(/'/g, "&apos;")}
+              </p>
               <div className="flex justify-between items-center mb-4">
                 <span className="text-lg font-bold text-primary">${product.price}</span>
                 <span className="text-sm text-muted-foreground">Stock: {product.stock}</span>

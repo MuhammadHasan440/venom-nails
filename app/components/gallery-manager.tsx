@@ -43,12 +43,13 @@ const mockImages: GalleryImage[] = [
 ]
 
 export default function GalleryManager() {
-  const [images, setImages] = useState<GalleryImage[]>(mockImages)
+  const [images] = useState<GalleryImage[]>(mockImages)
   const [selectedCategory, setSelectedCategory] = useState("all")
 
   const categories = ["all", "Weddings", "Corporate", "Birthdays", "Florals", "Venues"]
 
-  const filteredImages = selectedCategory === "all" ? images : images.filter((img) => img.category === selectedCategory)
+  const filteredImages =
+    selectedCategory === "all" ? images : images.filter((img) => img.category === selectedCategory)
 
   return (
     <div className="space-y-6">
@@ -83,13 +84,24 @@ export default function GalleryManager() {
         {filteredImages.map((image) => (
           <div key={image.id} className="bg-card rounded-xl overflow-hidden">
             <div className="relative aspect-square">
-              <Image src={image.image || "/placeholder.svg"} alt={image.title} fill className="object-cover" />
+              <Image
+                src={image.image || "/placeholder.svg"}
+                alt={image.title.replace(/'/g, "&apos;")}
+                fill
+                className="object-cover"
+              />
             </div>
 
             <div className="p-4">
-              <h3 className="font-semibold text-card-foreground mb-1">{image.title}</h3>
-              <p className="text-sm text-muted-foreground mb-2">{image.category}</p>
-              <p className="text-xs text-muted-foreground mb-4">Uploaded: {image.uploadDate}</p>
+              <h3 className="font-semibold text-card-foreground mb-1">
+                {image.title.replace(/'/g, "&apos;")}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-2">
+                {image.category.replace(/'/g, "&apos;")}
+              </p>
+              <p className="text-xs text-muted-foreground mb-4">
+                Uploaded: {image.uploadDate}
+              </p>
 
               <div className="flex space-x-2">
                 <button className="flex-1 bg-primary text-primary-foreground py-2 rounded-lg text-sm font-medium hover:bg-accent transition-colors">

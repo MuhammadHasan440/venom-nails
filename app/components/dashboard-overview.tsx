@@ -1,12 +1,29 @@
+import React from "react"
+
+type Stat = {
+  label: string
+  value: string
+  change: string
+  trend: "up" | "down"
+}
+
+type Booking = {
+  id: number
+  client: string
+  service: string
+  date: string
+  status: "confirmed" | "pending" | "completed"
+}
+
 export default function DashboardOverview() {
-  const stats = [
+  const stats: Stat[] = [
     { label: "Total Bookings", value: "127", change: "+12%", trend: "up" },
     { label: "Revenue", value: "$45,230", change: "+8%", trend: "up" },
     { label: "Products Sold", value: "89", change: "+15%", trend: "up" },
     { label: "Gallery Views", value: "2,340", change: "+5%", trend: "up" },
   ]
 
-  const recentBookings = [
+  const recentBookings: Booking[] = [
     { id: 1, client: "Sarah Johnson", service: "Wedding", date: "2024-03-15", status: "confirmed" },
     { id: 2, client: "Tech Corp", service: "Corporate Event", date: "2024-03-18", status: "pending" },
     { id: 3, client: "Mike Davis", service: "Birthday Party", date: "2024-03-20", status: "confirmed" },
@@ -17,7 +34,9 @@ export default function DashboardOverview() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-bold text-foreground mb-2">Dashboard Overview</h2>
-        <p className="text-muted-foreground">Welcome back! Here's what's happening with your business.</p>
+        <p className="text-muted-foreground">
+          Welcome back! Here&apos;s what&apos;s happening with your business.
+        </p>
       </div>
 
       {/* Stats Grid */}
@@ -68,8 +87,8 @@ export default function DashboardOverview() {
                       booking.status === "confirmed"
                         ? "bg-green-100 text-green-800"
                         : booking.status === "pending"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-blue-100 text-blue-800"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-blue-100 text-blue-800"
                     }`}
                   >
                     {booking.status}
