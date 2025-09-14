@@ -23,21 +23,22 @@ export default function HomePage() {
 
         <div className="relative z-10 text-center px-4">
           <div className="mb-8">
-           <Image
-  src="/images/venome-logo.jpeg"
-  alt="Venome Venue"
-  width={120}
-  height={120}
-  className="mx-auto rounded-full mb-6 ring-4 ring-pink-300/60 shadow-2xl shadow-pink-200/50"
-/>
+            <Image
+              src="/images/venome-logo.jpeg"
+              alt="Venome Venue"
+              width={120}
+              height={120}
+              className="mx-auto rounded-full mb-6 ring-4 ring-pink-300/60 shadow-2xl shadow-pink-200/50"
+            />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance bg-gradient-to-r from-pink-600 via-rose-500 to-pink-700 bg-clip-text text-transparent">
             Venome{" "}
-            <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">Venue</span>
+            <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              Venue
+            </span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-700 max-w-2xl mx-auto text-balance">
-            Where luxury meets elegance. Creating unforgettable moments with exquisite floral arrangements and premium
-            venue services.
+            {"Where luxury meets elegance. Creating unforgettable moments with exquisite floral arrangements and premium venue services."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -62,7 +63,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">Our Premium Services</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From intimate gatherings to grand celebrations, we bring your vision to life with unmatched elegance.
+              {"From intimate gatherings to grand celebrations, we bring your vision to life with unmatched elegance."}
             </p>
           </div>
 
@@ -81,7 +82,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-semibold text-card-foreground mb-4">Venue Booking</h3>
               <p className="text-muted-foreground mb-6">
-                Elegant spaces for weddings, corporate events, and special celebrations with full-service planning.
+                {"Elegant spaces for weddings, corporate events, and special celebrations with full-service planning."}
               </p>
               <Link href="/services/venue" className="text-primary hover:text-accent transition-colors font-semibold">
                 Learn More →
@@ -102,7 +103,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-semibold text-card-foreground mb-4">Floral Design</h3>
               <p className="text-muted-foreground mb-6">
-                Custom bouquets, centerpieces, and floral installations crafted with the finest seasonal blooms.
+                {"Custom bouquets, centerpieces, and floral installations crafted with the finest seasonal blooms."}
               </p>
               <Link href="/services/floral" className="text-primary hover:text-accent transition-colors font-semibold">
                 Learn More →
@@ -123,7 +124,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-semibold text-card-foreground mb-4">Gift Shop</h3>
               <p className="text-muted-foreground mb-6">
-                Curated selection of premium gifts, flowers, and accessories for every special occasion.
+                {"Curated selection of premium gifts, flowers, and accessories for every special occasion."}
               </p>
               <Link href="/shop" className="text-primary hover:text-accent transition-colors font-semibold">
                 Shop Now →
@@ -138,18 +139,20 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">Recent Celebrations</h2>
-            <p className="text-xl text-muted-foreground">A glimpse into the magical moments we've helped create</p>
+            <p className="text-xl text-muted-foreground">
+              {"A glimpse into the magical moments we&apos;ve helped create"}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <div key={item} className="group relative overflow-hidden rounded-xl aspect-square">
                 <Image
-  src={`/elegant-venue-event${item}.jpeg`}
-  alt={`Gallery image ${item}`}
-  fill
-  className="object-cover group-hover:scale-110 transition-transform duration-500"
-/>
+                  src={`/elegant-venue-event${item}.jpeg`}
+                  alt={`Gallery image ${item}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 text-white">
@@ -177,7 +180,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Create Something Beautiful?</h2>
           <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-            Let us bring your vision to life with our premium venue services and exquisite floral designs.
+            {"Let us bring your vision to life with our premium venue services and exquisite floral designs."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
