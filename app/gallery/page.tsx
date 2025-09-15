@@ -70,14 +70,12 @@ export default function GalleryPage() {
       : galleryItems.filter((item) => item.category === selectedCategory)
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
       <main className="pt-24">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-pink-500/10 via-rose-400/15 to-pink-600/20 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-30"></div>
-
           <div className="container mx-auto px-4 text-center relative z-10">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-600 via-rose-500 to-pink-700 bg-clip-text text-transparent">
               Our Gallery
@@ -89,7 +87,7 @@ export default function GalleryPage() {
         </section>
 
         {/* Filter Tabs */}
-        <section className="py-8 bg-background border-b border-border">
+        <section className="py-8 bg-background border-b border-pink-200">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center gap-4">
               {categories.map((category) => (
@@ -98,8 +96,8 @@ export default function GalleryPage() {
                   onClick={() => setSelectedCategory(category.key)}
                   className={`px-6 py-3 rounded-full font-semibold transition-colors ${
                     selectedCategory === category.key
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                      ? "bg-pink-600 text-white"
+                      : "bg-pink-100 text-pink-600 hover:bg-pink-200"
                   }`}
                 >
                   {category.label}
@@ -116,10 +114,10 @@ export default function GalleryPage() {
               {filteredItems.map((item) => (
                 <div
                   key={item.id}
-                  className="group relative overflow-hidden rounded-xl aspect-square cursor-pointer"
+                  className="group relative overflow-hidden rounded-xl shadow hover:shadow-2xl transition-shadow hover:scale-105 duration-300 cursor-pointer"
                   onClick={() => setSelectedImage(item)}
                 >
-                  <div className="relative w-full h-full">
+                  <div className="relative w-full h-64">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -127,7 +125,7 @@ export default function GalleryPage() {
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
                       <p className="text-sm text-white/80 line-clamp-2">{item.description}</p>
@@ -142,26 +140,24 @@ export default function GalleryPage() {
         {/* Lightbox Modal */}
         {selectedImage && (
           <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
-            <div className="relative max-w-4xl max-h-full w-full">
+            <div className="relative max-w-4xl max-h-full w-full rounded-xl overflow-hidden">
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white hover:text-primary transition-colors"
+                className="absolute -top-12 right-0 text-white hover:text-pink-500 text-3xl font-bold transition-colors"
               >
                 ✕
               </button>
-              <div className="bg-white rounded-xl overflow-hidden">
-                <div className="relative aspect-video">
-                  <Image
-                    src={selectedImage.image}
-                    alt={selectedImage.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{selectedImage.title}</h3>
-                  <p className="text-muted-foreground">{selectedImage.description}</p>
-                </div>
+              <div className="relative aspect-video">
+                <Image
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-2xl font-bold text-pink-700 mb-2">{selectedImage.title}</h3>
+                <p className="text-pink-500">{selectedImage.description}</p>
               </div>
             </div>
           </div>

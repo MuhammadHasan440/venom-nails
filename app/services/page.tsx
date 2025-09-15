@@ -7,7 +7,8 @@ const services = [
   {
     id: 1,
     title: "Wedding Venues",
-    description: "Elegant spaces for your perfect wedding day, from intimate ceremonies to grand receptions.",
+    description:
+      "Elegant spaces for your perfect wedding day, from intimate ceremonies to grand receptions.",
     features: ["Bridal suites", "Garden ceremonies", "Reception halls", "Catering services"],
     image: "/elegant-wedding-venue-ceremony.jpg",
     price: "Starting from $2,500",
@@ -16,7 +17,8 @@ const services = [
   {
     id: 2,
     title: "Corporate Events",
-    description: "Professional venues and services for meetings, conferences, and corporate celebrations.",
+    description:
+      "Professional venues and services for meetings, conferences, and corporate celebrations.",
     features: ["Meeting rooms", "Conference facilities", "Audio/visual equipment", "Catering options"],
     image: "/corporate-event-venue-professional.jpg",
     price: "Starting from $800",
@@ -25,7 +27,8 @@ const services = [
   {
     id: 3,
     title: "Floral Design",
-    description: "Custom floral arrangements and designs for any occasion, crafted with premium blooms.",
+    description:
+      "Custom floral arrangements and designs for any occasion, crafted with premium blooms.",
     features: ["Bridal bouquets", "Centerpieces", "Ceremony arches", "Event installations"],
     image: "/luxury-floral-arrangement-bouquet.jpg",
     price: "Starting from $150",
@@ -34,7 +37,8 @@ const services = [
   {
     id: 4,
     title: "Birthday Parties",
-    description: "Memorable birthday celebrations with custom decorations and venue arrangements.",
+    description:
+      "Memorable birthday celebrations with custom decorations and venue arrangements.",
     features: ["Themed decorations", "Party planning", "Catering coordination", "Entertainment setup"],
     image: "/birthday-party-venue-decoration.jpg",
     price: "Starting from $500",
@@ -45,16 +49,16 @@ const services = [
     title: "Event Planning",
     description: "Full-service event planning and coordination to bring your vision to life.",
     features: ["Event design", "Vendor coordination", "Timeline management", "Day-of coordination"],
-    image: "/placeholder.svg",
+    image: "/garden-wedding-venue-flowers.jpg",
     price: "Custom pricing",
     href: "/services/planning",
   },
   {
     id: 6,
-    title: "Venue Rentals",
+    title: "Meeting Room Venue Rentals",
     description: "Flexible venue rental options for any type of gathering or celebration.",
     features: ["Multiple room sizes", "Flexible layouts", "Equipment included", "Setup assistance"],
-    image: "/placeholder.svg",
+    image: "/executive-meeting-room-venue.jpg",
     price: "Starting from $300",
     href: "/services/rentals",
   },
@@ -85,7 +89,7 @@ export default function ServicesPage() {
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow"
+                  className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden shadow hover:shadow-2xl transition-shadow hover:scale-105 duration-300"
                 >
                   <div className="relative h-64 w-full">
                     <Image
@@ -97,18 +101,18 @@ export default function ServicesPage() {
                   </div>
                   <div className="p-8">
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-2xl font-bold">{service.title}</h3>
-                      <span className="text-primary font-semibold">{service.price}</span>
+                      <h3 className="text-2xl font-bold text-pink-700">{service.title}</h3>
+                      <span className="text-pink-600 font-semibold">{service.price}</span>
                     </div>
-                    <p className="text-gray-600 mb-6">{service.description}</p>
+                    <p className="text-pink-500 mb-6">{service.description}</p>
 
                     <div className="mb-6">
-                      <h4 className="font-semibold mb-3">Included Features:</h4>
+                      <h4 className="font-semibold mb-3 text-pink-700">Included Features:</h4>
                       <ul className="grid grid-cols-2 gap-2">
                         {service.features.map((feature, index) => (
-                          <li key={index} className="flex items-center text-sm text-gray-600">
+                          <li key={index} className="flex items-center text-sm text-pink-500">
                             <svg
-                              className="w-4 h-4 text-primary mr-2 flex-shrink-0"
+                              className="w-4 h-4 text-pink-600 mr-2 flex-shrink-0"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -129,13 +133,13 @@ export default function ServicesPage() {
                     <div className="flex gap-4">
                       <Link
                         href={service.href}
-                        className="flex-1 bg-primary text-white text-center py-3 rounded-lg font-semibold hover:bg-accent transition-colors"
+                        className="flex-1 bg-pink-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
                       >
                         Learn More
                       </Link>
                       <Link
                         href="/booking"
-                        className="flex-1 border-2 border-primary text-primary text-center py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors"
+                        className="flex-1 border-2 border-pink-600 text-pink-600 text-center py-3 rounded-lg font-semibold hover:bg-pink-600 hover:text-white transition-colors"
                       >
                         Book Now
                       </Link>
@@ -148,15 +152,15 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 bg-gradient-to-r from-pink-600 via-rose-500 to-pink-700 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold mb-6">Need a Custom Package?</h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90">
               We create bespoke event experiences tailored to your unique vision and requirements.
             </p>
             <Link
               href="/contact"
-              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent transition-colors"
+              className="bg-white text-pink-600 px-8 py-4 rounded-xl font-semibold hover:bg-white/90 transition-colors"
             >
               Get Custom Quote
             </Link>
